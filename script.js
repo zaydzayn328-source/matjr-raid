@@ -171,7 +171,9 @@ function waOrderLink(product) {
 
 /* تنسيق السعر مع فواصل الآلاف: 1290 → 1,290 */
 function formatPrice(value) {
-    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    /* الأسعار العشرية تُعرض برقمين بعد الفاصلة: 58.9 → 58.90 */
+    var text = (value % 1 === 0) ? value.toString() : value.toFixed(2);
+    return text.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 /* =====================================================
@@ -268,9 +270,12 @@ function buildCard(product) {
             ratingHtml +
             oldPriceHtml +
             '<p class="price">' + formatPrice(product.price) + ' ' + product.currency + '</p>' +
-            '<a href="' + waOrderLink(product) + '" class="order-btn" target="_blank">' +
-                '🛒 اطلب الآن' +
-            '</a>' +
+            '<div class="card-actions">' +
+                addToCartButton(product) +
+                '<a href="' + waOrderLink(product) + '" class="order-btn" target="_blank">' +
+                    '🛒 اطلب الآن' +
+                '</a>' +
+            '</div>' +
         '</div>';
 }
 
@@ -470,9 +475,12 @@ function renderProductDetail() {
                 oldPriceHtml +
                 '<p class="price">' + formatPrice(product.price) + ' ' + product.currency + '</p>' +
                 '<p class="product-detail-desc">' + product.description + '</p>' +
-                '<a href="' + waOrderLink(product) + '" class="order-btn product-detail-order" target="_blank">' +
-                    '🛒 اطلب الآن' +
-                '</a>' +
+                '<div class="card-actions">' +
+                    addToCartButton(product) +
+                    '<a href="' + waOrderLink(product) + '" class="order-btn product-detail-order" target="_blank">' +
+                        '🛒 اطلب الآن' +
+                    '</a>' +
+                '</div>' +
                 backToStore +
             '</div>' +
         '</div>';
@@ -625,8 +633,239 @@ function renderStoreView() {
    - renderStoreView: يعمل في store-view.html فقط
    - renderHomePage: يعمل في project3.html فقط
    ===================================================== */
+/* =====================================================
+   سلة المشتريات
+   - تُحفظ في localStorage فتبقى عند التنقل بين الصفحات
+   - تُرسل كل المنتجات في رسالة واتساب واحدة مع المجموع
+   - لوحة السلة تُبنى من هنا، فلا تحتاج الصفحات إلا زر .cart-btn
+   ===================================================== */
+var CART_KEY = "zero-market-cart";
+var cart = loadCart();
+
+function loadCart() {
+    try {
+        var saved = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+        /* نحتفظ فقط بمنتجات ما زالت موجودة في PRODUCTS */
+        return saved.filter(function (item) {
+            return item && getProductById(item.id) && item.qty > 0;
+        });
+    } catch (e) {
+        return [];
+    }
+}
+
+function saveCart() {
+    try {
+        localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    } catch (e) {
+        /* التخزين غير متاح (وضع التصفح الخاص مثلًا): السلة تعمل في هذه الصفحة فقط */
+    }
+}
+
+function addToCartButton(product) {
+    return '<button type="button" class="add-cart-btn" data-add-to-cart="' + product.id + '">' +
+               '➕ أضف إلى السلة' +
+           '</button>';
+}
+
+function cartCount() {
+    var count = 0;
+    for (var i = 0; i < cart.length; i++) {
+        count += cart[i].qty;
+    }
+    return count;
+}
+
+function cartTotal() {
+    var total = 0;
+    for (var i = 0; i < cart.length; i++) {
+        total += getProductById(cart[i].id).price * cart[i].qty;
+    }
+    return Math.round(total * 100) / 100;
+}
+
+function findCartItem(id) {
+    for (var i = 0; i < cart.length; i++) {
+        if (cart[i].id === id) {
+            return cart[i];
+        }
+    }
+    return null;
+}
+
+function addToCart(id) {
+    var item = findCartItem(id);
+    if (item) {
+        item.qty++;
+    } else {
+        cart.push({ id: id, qty: 1 });
+    }
+    saveCart();
+    renderCart();
+    showToast("✅ تمت الإضافة إلى السلة");
+}
+
+function changeQty(id, delta) {
+    var item = findCartItem(id);
+    if (!item) {
+        return;
+    }
+    item.qty += delta;
+    if (item.qty <= 0) {
+        cart = cart.filter(function (it) { return it.id !== id; });
+    }
+    saveCart();
+    renderCart();
+}
+
+/* رسالة واتساب واحدة تضم كل المنتجات والكميات والمجموع */
+function waCartLink() {
+    var currency = cart.length ? getProductById(cart[0].id).currency : "";
+    var lines = ["السلام عليكم، أريد طلب المنتجات التالية:", ""];
+    for (var i = 0; i < cart.length; i++) {
+        var p = getProductById(cart[i].id);
+        lines.push((i + 1) + ") " + p.name + " × " + cart[i].qty +
+                   " = " + formatPrice(Math.round(p.price * cart[i].qty * 100) / 100) + " " + p.currency);
+    }
+    lines.push("");
+    lines.push("المجموع: " + formatPrice(cartTotal()) + " " + currency);
+    return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(lines.join("\n"));
+}
+
+/* بناء لوحة السلة مرة واحدة في كل صفحة فيها زر .cart-btn */
+function setupCart() {
+    var cartBtn = document.querySelector('.cart-btn');
+    if (!cartBtn) {
+        return;
+    }
+
+    cartBtn.insertAdjacentHTML('beforeend', '<span class="cart-count" hidden>0</span>');
+
+    document.body.insertAdjacentHTML('beforeend',
+        '<div class="cart-overlay" hidden></div>' +
+        '<aside class="cart-drawer" role="dialog" aria-modal="true" aria-label="سلة المشتريات" aria-hidden="true">' +
+            '<div class="cart-drawer-head">' +
+                '<h2>🛒 سلة المشتريات</h2>' +
+                '<button type="button" class="cart-close" aria-label="إغلاق السلة">✕</button>' +
+            '</div>' +
+            '<div class="cart-items"></div>' +
+            '<div class="cart-drawer-foot">' +
+                '<p class="cart-total-row">المجموع: <strong class="cart-total"></strong></p>' +
+                '<a class="order-btn cart-checkout" target="_blank" rel="noopener">📲 أرسل الطلب عبر واتساب</a>' +
+                '<button type="button" class="cart-clear">إفراغ السلة</button>' +
+            '</div>' +
+        '</aside>' +
+        '<div class="cart-toast" role="status" aria-live="polite"></div>'
+    );
+
+    cartBtn.addEventListener('click', openCart);
+    document.querySelector('.cart-overlay').addEventListener('click', closeCart);
+    document.querySelector('.cart-close').addEventListener('click', closeCart);
+    document.querySelector('.cart-clear').addEventListener('click', function () {
+        cart = [];
+        saveCart();
+        renderCart();
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeCart();
+        }
+    });
+
+    /* أزرار الإضافة والكميات تُبنى ديناميكيًا، لذلك نستمع على مستوى الصفحة */
+    document.addEventListener('click', function (e) {
+        var addBtn = e.target.closest('[data-add-to-cart]');
+        if (addBtn) {
+            addToCart(addBtn.getAttribute('data-add-to-cart'));
+            return;
+        }
+        var qtyBtn = e.target.closest('[data-qty]');
+        if (qtyBtn) {
+            changeQty(qtyBtn.getAttribute('data-id'), parseInt(qtyBtn.getAttribute('data-qty'), 10));
+        }
+    });
+
+    renderCart();
+}
+
+function renderCart() {
+    var countEl = document.querySelector('.cart-count');
+    var itemsEl = document.querySelector('.cart-items');
+    if (!countEl || !itemsEl) {
+        return;
+    }
+
+    var count = cartCount();
+    countEl.textContent = count;
+    countEl.hidden = count === 0;
+
+    var foot = document.querySelector('.cart-drawer-foot');
+    if (!cart.length) {
+        itemsEl.innerHTML = '<p class="cart-empty">السلة فارغة. أضف منتجات بالضغط على «أضف إلى السلة».</p>';
+        foot.hidden = true;
+        return;
+    }
+
+    var html = "";
+    for (var i = 0; i < cart.length; i++) {
+        var p = getProductById(cart[i].id);
+        html +=
+            '<div class="cart-item">' +
+                '<img src="' + p.image + '" alt="' + p.alt + '">' +
+                '<div class="cart-item-info">' +
+                    '<p class="cart-item-name">' + p.name + '</p>' +
+                    '<p class="cart-item-price">' + formatPrice(p.price) + ' ' + p.currency + '</p>' +
+                    '<div class="cart-qty">' +
+                        '<button type="button" data-qty="1" data-id="' + p.id + '" aria-label="زيادة الكمية">+</button>' +
+                        '<span>' + cart[i].qty + '</span>' +
+                        '<button type="button" data-qty="-1" data-id="' + p.id + '" aria-label="إنقاص الكمية">−</button>' +
+                    '</div>' +
+                '</div>' +
+            '</div>';
+    }
+    itemsEl.innerHTML = html;
+    foot.hidden = false;
+    document.querySelector('.cart-total').textContent =
+        formatPrice(cartTotal()) + ' ' + getProductById(cart[0].id).currency;
+    document.querySelector('.cart-checkout').href = waCartLink();
+}
+
+function openCart() {
+    document.querySelector('.cart-overlay').hidden = false;
+    var drawer = document.querySelector('.cart-drawer');
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCart() {
+    var drawer = document.querySelector('.cart-drawer');
+    if (!drawer) {
+        return;
+    }
+    document.querySelector('.cart-overlay').hidden = true;
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+}
+
+var toastTimer = null;
+function showToast(text) {
+    var toast = document.querySelector('.cart-toast');
+    if (!toast) {
+        return;
+    }
+    toast.textContent = text;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () {
+        toast.classList.remove('show');
+    }, 1800);
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     renderProductDetail();
     renderStoreView();
     renderHomePage();
+    setupCart();
 });

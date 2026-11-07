@@ -1884,3 +1884,236 @@ footer{
 .pg2 .pg2-result-status{font-size:17px;}
 .pg2 .pg2-submit{max-width:100%;}
 }
+/* ===================================
+   سلة المشتريات — زر الإضافة، العداد، اللوحة الجانبية
+=================================== */
+.card-actions{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-cart-btn{
+    background: rgba(0,255,255,0.08);
+    border: 1px solid rgba(0,255,255,0.35);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 12px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-cart-btn:hover{
+    background: rgba(0,255,255,0.2);
+    border-color: #4fd1ff;
+    box-shadow: 0 0 15px rgba(0,212,255,0.3);
+}
+
+.cart-btn{
+    position: relative;
+    font-family: inherit;
+}
+
+.cart-count{
+    min-width: 22px;
+    height: 22px;
+    padding: 0 6px;
+    border-radius: 11px;
+    background: #ff8c00;
+    color: #111;
+    font-size: 13px;
+    line-height: 22px;
+    text-align: center;
+}
+
+.cart-count[hidden],
+.cart-overlay[hidden],
+.cart-drawer-foot[hidden]{
+    display: none !important;
+}
+
+.cart-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+}
+
+.cart-drawer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    max-width: 400px;
+    background: #141a20;
+    border-right: 1px solid rgba(0,255,255,0.25);
+    box-shadow: 0 0 30px rgba(0,255,255,0.15);
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    visibility: hidden;
+}
+
+.cart-drawer.open{
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.cart-drawer-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    border-bottom: 1px solid rgba(0,255,255,0.2);
+}
+
+.cart-drawer-head h2{
+    font-size: 20px;
+    color: #ffffff;
+    margin: 0;
+}
+
+.cart-close{
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 4px 10px;
+}
+
+.cart-items{
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px 20px;
+}
+
+.cart-empty{
+    color: #bbb;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cart-item{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.cart-item img{
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.05);
+    flex-shrink: 0;
+}
+
+.cart-item-info{
+    flex: 1;
+    min-width: 0;
+}
+
+.cart-item-name{
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0 0 4px;
+}
+
+.cart-item-price{
+    color: #ff8c00;
+    font-weight: bold;
+    margin: 0 0 6px;
+}
+
+.cart-qty{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-qty button{
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    border: 1px solid rgba(0,255,255,0.35);
+    background: rgba(0,255,255,0.08);
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.cart-qty span{
+    color: #ffffff;
+    min-width: 20px;
+    text-align: center;
+}
+
+.cart-drawer-foot{
+    padding: 18px 20px;
+    border-top: 1px solid rgba(0,255,255,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+}
+
+.cart-total-row{
+    color: #ffffff;
+    font-size: 18px;
+    margin: 0;
+}
+
+.cart-total{
+    color: #ff8c00;
+}
+
+.cart-checkout{
+    text-decoration: none;
+}
+
+.cart-clear{
+    background: none;
+    border: none;
+    color: #aaa;
+    font-family: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.cart-toast{
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translate(-50%, 20px);
+    background: #1d2a33;
+    color: #ffffff;
+    border: 1px solid rgba(0,255,255,0.35);
+    padding: 12px 22px;
+    border-radius: 25px;
+    z-index: 1002;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.cart-toast.show{
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+a.store-logo{
+    text-decoration: none;
+}
