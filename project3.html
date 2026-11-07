@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>متجر إلكتروني</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ============ Header المتجر ============ -->
+<header class="store-header">
+
+    <!-- هوية المتجر -->
+    <span class="store-logo">Zero Market</span>
+
+    <!-- السلة (واجهة فقط) -->
+    <button type="button" class="cart-btn" aria-label="سلة المشتريات">
+        &#128722; السلة
+    </button>
+
+</header>
+
+<!-- ============ صفحة البطل ============ -->
+<section class="project-page">
+
+    <img class="project-banner" src="images/zero-market-banner.jpg.png" alt="Zero Market">
+    <div class="hero-box">
+    <h1>Zero Market</h1>
+    <h2>متجر إلكتروني</h2>
+    
+    <p>
+        متجر إلكتروني حديث يعرض المنتجات بطريقة احترافية
+        مع تصميم سريع ومتجاوب مع جميع الأجهزة.
+    </p>
+    </div>
+</section>
+
+<!-- ============ شريط التنقل الأفقي لأقسام المتجر ============ -->
+<div class="store-nav">
+    <a href="project3.html">الرئيسية</a>
+    <a href="store-view.html?view=all">منتجاتنا</a>
+    <a href="store-view.html?view=offers">العروض</a>
+    <a href="store-view.html?view=best-sellers">⭐ الأعلى تقييمًا</a>
+    <a href="store-view.html?view=new-arrivals">جديدنا</a>
+    <a href="#categories">التصنيفات</a>
+    <a href="#contact">تواصل معنا</a>
+</div>
+
+<!-- ============ قسم التصنيفات ============ -->
+<section id="categories" class="products categories">
+
+    <h2>التصنيفات</h2>
+    <div class="categories-container">
+        <a href="store-view.html?cat=electronics" class="category-card">
+            <span class="category-icon">&#128241;</span>
+            الإلكترونيات
+        </a>
+        <a href="store-view.html?cat=clothing" class="category-card">
+            <span class="category-icon">&#128087;</span>
+            الملابس
+        </a>
+        <a href="store-view.html?cat=beauty" class="category-card">
+            <span class="category-icon">&#128132;</span>
+            التجميل والعناية
+        </a>
+        <a href="store-view.html?cat=home" class="category-card">
+            <span class="category-icon">&#127968;</span>
+            المنزل واللوازم المنزلية
+        </a>
+    </div>
+</section>
+
+<!-- ============ قسم منتجات مختارة (معاينة: منتج من كل تصنيف) ============ -->
+<section id="featured-products" class="products">
+
+    <h2>⭐ منتجات مختارة</h2>
+    <div class="products-container" id="featured-products-container"></div>
+    <a href="store-view.html?view=all" class="project-button section-more">عرض جميع المنتجات</a>
+</section>
+
+<!-- ============ قسم العروض ============ -->
+<section id="offers" class="products">
+
+    <h2>🔥 العروض</h2>
+    <div class="products-container" id="offers-container"></div>
+    <a href="store-view.html?view=offers" class="project-button section-more">عرض جميع العروض</a>
+</section>
+
+<!-- ============ قسم الأعلى تقييماً ============ -->
+<section id="best-sellers" class="products">
+
+    <h2>⭐ الأعلى تقييمًا</h2>
+    <div class="products-container" id="best-sellers-container"></div>
+    <a href="store-view.html?view=best-sellers" class="project-button section-more">عرض جميع الأعلى تقييمًا</a>
+</section>
+
+<!-- ============ قسم جديدنا (معاينة 4 فقط) ============ -->
+<section id="new-arrivals" class="products">
+
+    <h2>🆕 جديدنا</h2>
+    <div class="products-container" id="new-arrivals-container"></div>
+    <a href="store-view.html?view=new-arrivals" class="project-button section-more">عرض جميع المنتجات الجديدة</a>
+</section>
+
+<!-- ============ قسم تواصل معنا ============ -->
+<section id="contact" class="contact">
+
+    <h2>تواصل معنا</h2>
+    <div class="contact-card">
+        <p>
+            إذا كان لديك أي سؤال أو طلب خاص بمتجر Zero Market،
+            تواصل معنا مباشرة وسنرد عليك في أقرب وقت.
+        </p>
+        <a href="https://wa.me/212624726277?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%20%D8%A7%D9%84%D9%85%D8%AA%D8%AC%D8%B1" class="contact-button" target="_blank">
+            تواصل معنا عبر واتساب
+        </a>
+    </div>
+</section>
+
+<div class="back-home">
+    <a href="index.html" class="project-button">
+        العودة إلى الرئيسية
+    </a>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

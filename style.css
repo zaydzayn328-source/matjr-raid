@@ -1,0 +1,1886 @@
+/* ===================================
+   Project Zero V2
+   إعدادات عامة
+=================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:#111;
+
+    color:white;
+
+    font-family:Arial, sans-serif;
+
+    line-height:1.7;
+
+}
+
+section{
+
+    padding:80px 10%;
+
+}
+
+h1,h2,h3{
+
+    margin-bottom:20px;
+
+}
+
+p{
+
+    margin-bottom:20px;
+
+}
+
+a{
+
+    text-decoration:none;
+
+}
+/* ===================================
+   Hero
+=================================== */
+
+.home-hero{
+
+    text-align:center;
+
+    min-height: 80vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.profile-image{
+
+    width:220px;
+
+    height:220px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:5px solid #3498db;
+
+    margin-bottom:30px;
+transition: all 0.4s ease;
+}
+.profile-image:hover {
+transform: scale(1.08);
+    box-shadow: 0 0 30px rgba(13, 212, 247, 0.977);
+}
+.home-hero h1{
+
+    font-size:48px;
+
+    margin-bottom:20px;
+position: relative;
+display: inline-block;
+}
+
+.home-hero h1::after{
+
+    content: "";
+
+    display: block;
+
+    width: 80%;
+
+    height: 4px;
+
+    margin: 15px auto 0;
+
+    border-radius: 10px;
+
+    background: linear-gradient(90deg,#0744ee,#fcf409);
+
+}
+
+.home-hero p{
+
+    max-width:700px;
+
+    font-size:20px;
+
+    color:#cccccc;
+
+    margin-bottom:40px;
+
+}
+
+.home-hero-text-box{
+
+    max-width:700px;
+
+    margin:25px auto;
+
+    padding:25px;
+
+    background:rgba(255,255,255,0.05);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    border-radius:20px;
+
+    backdrop-filter:blur(10px);
+   transition:0.35s ease;
+   cursor: default;
+}
+
+.home-hero-text-box:hover{
+
+    transform: translateY(-8px);
+
+    box-shadow: 0 25px 55px rgba(31, 7, 245, 0.932);
+
+}
+
+.main-button{
+
+    background:#3498db;
+
+    color:white;
+
+    padding:15px 35px;
+
+    border-radius:10px;
+
+    font-size:18px;
+    cursor: pointer;
+   transition: all 0.3s ease;
+
+}
+
+.main-button:hover {
+    background: #051318;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #4fd1ff;
+}
+/* ===========================
+   Skills
+=========================== */
+
+.skills-container{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.skill-card{
+    background: linear-gradient(135deg,#088a8a82,#04b8c598);
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    transition:0.35s;
+}
+
+.skill-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 35px rgba(7, 229, 245, 0.968);
+}
+/* ===========================
+   Services
+=========================== */
+
+.services-container{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.service-card{
+    background: linear-gradient(135deg,#114b4b,#04252e);
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    transition: all .35s ease;
+    cursor: pointer;
+}
+
+.service-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 35px rgba(11, 211, 221, 0.831);
+}
+/* ===========================
+   Projects
+=========================== */
+
+.projects-container{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    flex-wrap:wrap;
+    align-items: stretch;
+}
+
+.project-card{
+    background: linear-gradient(135deg,#27606a,#033236);
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    transition:0.35s;
+}
+
+.project-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 35px rgba(10, 173, 209, 0.979);
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(20, 20, 35, 0.95);
+    padding: 15px 0;
+    text-align: center;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    margin: 0 18px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #4fd1ff;
+}
+.contact-card {
+    background: linear-gradient(135deg, #135c56, #044a42);
+    padding: 35px;
+    border-radius: 20px;
+    border: 1px solid rgba(11, 217, 244, 0.932);
+    transition: all 0.35s ease;
+}
+.contact-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(8, 192, 205, 0.817);
+}
+
+.contact-button{
+
+    display:inline-block;
+
+    margin-top:25px;
+
+    background:#010f0d;
+
+    color: #fcfafa;
+
+    padding:15px 35px;
+
+    border-radius:10px;
+
+    transition:.3s;
+}
+
+.contact-button:hover{
+
+    background:#2980b9;
+
+    transform:scale(1.05);
+    letter-spacing: 1px;
+}
+
+
+.about {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 35px;
+
+    background: linear-gradient(135deg, #2d3d91, #4d7cff);
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(34,149,225,0.25);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.about h2 {
+    margin-bottom: 25px;
+    color: #ffffff;
+}
+
+.about p{
+    line-height: 2;
+    font-size: 20px;
+    color:#d9e6ff;
+    margin-bottom:20px;
+}
+
+.menu-icon{
+    display:none;
+    color:white;
+    font-size:30px;
+    cursor:pointer;
+}
+
+@media (max-width:768px) {
+    .menu-icon{
+        display:block;
+        margin-bottom:10px;
+    }
+
+    nav a{
+        display:none;
+    }
+
+    nav.active a{
+        display:block;
+        margin:12px 0;
+    }
+    }
+/* ===================================
+   الصفحة الرئيسية — توحيد العناوين والمسافات وتخطيط المشاريع
+   (يخص قسم الصفحة الرئيسية فقط عبر معرفات الأقسام، دون المساس بصفحات المشاريع)
+=================================== */
+
+/* 1) مسافات رأسية متوازنة بين أقسام الصفحة الرئيسية */
+#projects,
+#contact{
+    padding: 60px 10%;
+}
+
+/* 2) توحيد عناوين الأقسام: نفس الحجم والوزن والمحاذاة والمسافة العلوية/السفلية */
+#projects h2,
+#contact h2{
+    text-align: center;
+    font-size: 42px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 45px;
+}
+
+/* 3) تخطيط بطاقات المشاريع على الشاشات الكبيرة (صف متوازن متساوي العروض) */
+
+.projects-container .project-card{
+    flex: 1 1 0;                     /* عرض متساوٍ لكل البطاقات في صف واحد */
+    min-width: 250px;                /* منع البطاقة من التقلص الزائد */
+    max-width: 400px;                /* حجم مناسب على الشاشات الكبيرة */
+}
+/* تقليل الفراغ الكبير أسفل زر المشروع داخل البطاقة */
+.projects-container .project-button{
+    margin: 25px auto 5px;
+}
+
+/* 4) قسم التواصل: محاذاة محتوى البطاقة في المنتصف للتناسق مع باقي الأقسام */
+#contact .contact-card{
+    text-align: center;
+}
+/* 5) الفوتر: محاذاة نص الحقوق في المنتصف */
+footer{
+    text-align: center;
+}
+
+/* 6) توحيد عناوين أقسام الصفحة الرئيسية (body.home) دون التأثير على صفحات المشاريع.
+      قاعدة #projects h2 / #contact h2 تُبقي 42px أيضًا لصفحة Zero Market،
+      وهذه القاعدة تضيف نفس الحجم لبقية أقسام الرئيسية فقط */
+.home h2{
+    font-size: 42px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* 7) تحسينات الهاتف للصفحة الرئيسية فقط — كل selectors مقيدة بـ .home
+      (لا تمس صفحات المشاريع ولا Zero Market) */
+@media (max-width: 768px){
+    .home section{
+        padding: 50px 6%;
+    }
+    .home #projects,
+    .home #contact{
+        padding: 45px 6%;
+    }
+    .home .home-hero{
+        padding: 110px 5% 40px;
+        min-height: auto;
+    }
+    .home-hero h1{
+        font-size: 32px;
+    }
+    .home-hero p{
+        font-size: 17px;
+    }
+    .home-hero-text-box{
+        max-width: 96%;
+        padding: 20px 16px;
+    }
+    .home .about{
+        padding: 25px 18px;
+    }
+    .home .about p{
+        font-size: 17px;
+        line-height: 1.9;
+    }
+    .home .skills-container,
+    .home .services-container,
+    .home .projects-container{
+        gap: 15px;
+    }
+    .home .skill-card,
+    .home .service-card,
+    .home .project-card{
+        width: 100%;
+        max-width: 340px;
+        padding: 24px 18px;
+    }
+    .home .projects-container .project-button{
+        width: 100%;
+        max-width: 240px;
+        padding: 12px 10px;
+        font-size: 15px;
+        box-sizing: border-box;
+        margin: 20px auto 5px;
+    }
+    .home .contact-card{
+        padding: 25px 15px;
+    }
+    .home .contact-button{
+        display: block;
+        width: 100%;
+        max-width: 280px;
+        margin: 20px auto 0;
+        padding: 14px 10px;
+        box-sizing: border-box;
+    }
+    .home #projects h2,
+    .home #contact h2{
+        margin-bottom: 28px;
+    }
+    .home footer{
+        padding: 30px 6%;
+    }
+}
+
+
+.project-page{
+    max-width:900px;
+    margin: 40px auto 10px;
+    padding:30px;
+    text-align:center;
+}
+
+.project-page h1{
+    font-size:40px;
+    margin-bottom:30px;
+}
+
+.project-image{
+    width:100%;
+    max-width:700px;
+    border-radius:20px;
+    box-shadow:0 0 30px rgba(0,255,255,.25);
+    margin-bottom:30px;
+}
+
+.project-description{
+    font-size:20px;
+    line-height:2;
+    color:#ddd;
+    margin-bottom:40px;
+}
+
+.project-tech{
+    list-style:none;
+    padding:0;
+    margin:20px 0 40px;
+}
+
+.project-tech li{
+    display:inline-block;
+    padding:12px 25px;
+    margin:10px;
+    border-radius:10px;
+    background:#1f2937;
+    color:#7dd3fc;
+    font-weight:bold;
+}
+
+.back-button{
+    display:inline-block;
+    padding:15px 35px;
+    background:#00bcd4;
+    color:#fff;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.back-button:hover{
+    background:#0284c7;
+    transform:translateY(-3px);
+}
+    /* ===== HERO SECTION ===== */
+.project-hero{
+    max-width: 1200px;
+    margin: 120px auto;
+    padding: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    flex-wrap: nowrap;
+}
+
+.project-hero-text{
+    flex: 1;
+    min-width: 320px;
+}
+
+.project-hero-text h1{
+    font-size: 52px;
+    color: #ffffff;
+    margin-bottom: 25px;
+    line-height: 1.3;
+}
+
+.project-hero-text p{
+    font-size: 20px;
+    color: #d1d5db;
+    line-height: 2;
+    margin-bottom: 40px;
+}
+    
+
+.project2-btn-secondary{
+   
+    padding: 16px 34px;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: .3s;
+    border: 2px solid #06b6d4;
+    color: #06b6d4;
+}
+
+.project2-btn-primary{
+    background: #eeefef;
+    color: #080909;
+    padding: 16px 34px;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: .3s;
+    display: inline-block;
+    }
+
+.project2-btn-primary:hover{
+   
+    background: #07eefeef;
+    transform: translateY(-4px);
+}
+
+.project2-btn-secondary:hover{
+    
+    background: #06b6d4;
+    color: #ffffff;
+    transform: translateY(-4px);
+}
+
+.project-hero-image{
+    flex: 1;
+    min-width: 320px;
+    text-align: center;
+}
+
+.project-hero-image img{
+    width: 100%;
+    max-width: 520px;
+    border-radius: 22px;
+    box-shadow: 0 0 35px rgba(0,255,255,.25);
+}
+
+@media (max-width:768px){
+
+    .project-hero{
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 40px;
+        padding: 30px 20px;
+    }
+
+    .project-hero-text h1{
+        font-size: 38px;
+    }
+
+    .project-hero-text p{
+        font-size: 18px;
+    }
+
+    .project-hero-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+    .project-hero-image img{
+        max-width: 380px;
+    }
+}
+/* ===== PROJECT 2 FEATURES ===== */
+
+.features{
+    max-width: 1200px;
+    margin:  5% auto;
+    padding: 40px;
+}
+
+.features h2{
+    text-align: center;
+    color: #ffffff;
+    font-size: 42px;
+    margin-bottom: 50px;
+}
+
+.features-container{
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.feature-card{
+    background: #30353f;
+    border: 1px solid #f2f1f6;
+    border-radius: 16px;
+    padding: 40px 30px;
+    width: 320px;
+    text-align: center;
+    transition: all .35s ease;
+    cursor: pointer;
+}
+
+.feature-card:hover{
+    transform: translateY(-10px);
+    border-color: #4eb2f5;
+    box-shadow: 0 15px 35px rgba(13, 150, 241, 0.575);
+}
+
+.feature-card h3{
+    color: #ffffff;
+    font-size: 28px;
+    margin-bottom: 18px;
+}
+
+.feature-card p{
+    color: #d1d5db;
+    line-height: 1.8;
+    font-size: 17px;
+}
+/* ===== Portfolio Section ===== */
+
+.projects{
+    padding: 80px 10%;
+    background: #111;
+}
+
+.projects h2{
+    text-align: center;
+    color: #ffffff;
+    font-size: 42px;
+    margin-bottom: 50px;
+}
+
+.portfolio-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.portfolio-card{
+    max-width: 350px;
+    margin: auto;
+
+    background: #1f2937;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow: 0 0 30px rgba(0,255,255,.20);
+
+    transition: .3s ease;
+
+    flex: 1 1 300px;
+}
+
+.portfolio-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0,255,255,.35);
+}
+
+.portfolio-card img{
+    width:100%;
+    max-width:700px;
+
+    border-radius:18px;
+
+    margin-bottom:25px;
+}
+
+.portfolio-card h3{
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.portfolio-card p{
+    font-size:19px;
+    color:#d1d5db;
+    line-height:2;
+}
+.project-button{
+
+    background:#06b6d4;
+
+    color:#ffffff;
+
+    padding:15px 35px;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+    transition:.3s ease;
+   display: block;
+   width: fit-content;
+   margin: 50px auto;
+}
+
+.project-button:hover{
+
+    background:#011a20;
+
+    transform:translateY(-4px);
+
+    box-shadow:0 0 20px rgba(6, 181, 212, 0.683);
+
+}
+
+.project-banner {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+.products {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.products h2{
+    font-size: 38px;
+    margin-bottom: 15px;
+    color: white;
+    text-align: center;
+}
+.products-container{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.product-card {
+    width: 340px;
+    margin: auto;
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 0 25px rgba(0,255,255,.15);
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 0 35px rgba(5, 126, 173, 0.744);
+}
+
+.product-image {
+    width: 95%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    transition: transform .35s ease;
+}
+
+.product-card h3 {
+    color: white;
+    font-size: 1.6rem;
+    margin: 15px 0;
+}
+
+.product-card p {
+    color: #ddd;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+.rating{
+    color: #fcdf03;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* ═══ نصف نجمة التقييم — تُستخدم فقط عندما يكون كسر التقييم >= 0.5 ═══
+   الفكرة: نجمة كاملة بلون فارغ (#4a4a4a) تحتها، وفوقها طبقة ذهبية
+   (نفس لون النجوم الكاملة) تغطي نصفها الأيسر فقط، فيظهر شكل نصف نجمة
+   واضح ومفهوم بدل قص مبتور للرمز.
+   direction: ltr يثبّت الجهة الرسومية حتى لا ينعكس مع RTL الصفحة. */
+.half-star{
+    position: relative;
+    display: inline-block;
+    width: 1em;
+    font-size: inherit;
+    line-height: 1;
+    color: #4a4a4a;
+    direction: ltr;
+}
+.half-star::after{
+    content: "★";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    overflow: hidden;
+    color: #fcdf03;
+    white-space: nowrap;
+}
+
+.product-card .price{
+    color: #ff8c00;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 12px 0;
+}
+.badge{
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: white;
+}
+
+.badge.new{
+    background: #00c853;
+}
+
+.badge.bestseller{
+    background: #ff6d00;
+}
+
+.badge.offer{
+    background: #d500f9;
+}
+.order-btn{
+    display: inline-block;
+    background: linear-gradient(135deg,#fe8504,#031320);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,212,255,0.3);
+}
+
+.order-btn:hover{
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(0,212,255,0.5);
+}
+.old-price{
+    color: #f7cb06b6  !important;
+    text-decoration: line-through;
+    font-size: 24px;
+    margin: 5px 0;
+}
+.hero-box{
+    max-width: 580px;
+    margin: 40px auto;
+    padding: 35px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(7, 254, 254, 0.847);
+    border-radius: 25px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 25px rgba(5, 199, 199, 0.53);
+    transition: 0.3s;
+}
+
+.hero-box:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 0 35px rgba(0,255,255,.25);
+}
+
+.hero-box h1{
+    font-size: 55px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.hero-box h2{
+    font-size: 32px;
+    color: #f2f2f2;
+    margin-bottom: 25px;
+}
+
+.hero-box p{
+    max-width: 460px;
+    margin: 0 auto;
+    line-height: 1.9;
+    font-size: 25px;
+    color: #fefcfc;
+}
+
+
+.products h2::after{
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #05ffea;
+    margin: 12px auto 0;
+    border-radius: 20px;
+}
+/* ===================================
+   Project 2 layout fixes (.pg2 only)
+=================================== */
+
+/* 1) Equal-width, equal-height service cards */
+.pg2 .services-container{
+    align-items: stretch;          /* equal card heights per row */
+}
+.pg2 .service-card{
+    flex: 1 1 280px;               /* uniform width -> clean grid */
+    max-width: 350px;
+}
+
+/* 2) Style the service icon */
+.pg2 .service-icon{
+    display: block;
+    font-size: 48px;
+    line-height: 1;
+    margin-bottom: 15px;
+}
+
+/* 3) Center + improve the Services heading */
+.pg2 .services h2{
+    text-align: center;
+    font-size: 42px;
+    color: #ffffff;
+    margin-bottom: 50px;
+}
+
+/* 4) Center the Back-to-Home button */
+.pg2 .project2-btn-secondary{
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+}
+/* Projects background + balanced portfolio cards (.pg2 only) */
+
+/* Equal card heights per row */
+.pg2 .portfolio-container{
+    align-items: stretch;
+}
+
+/* Equal-width cards in one balanced row + reduced glow */
+.pg2 .portfolio-card{
+    flex: 1 1 0;                        /* share the row equally */
+    min-width: 250px;                   /* guard against over-shrink */
+    max-width: 380px;                   /* reasonable desktop size */
+    box-shadow: 0 0 15px rgba(0,255,255,.08);    /* reduced glow */
+}
+.pg2 .portfolio-card:hover{
+    transform: translateY(-10px);                     /* lift like Services */
+    box-shadow: 0 15px 35px rgba(11,211,221,0.831);   /* same glow as Services */
+}
+
+/* Same image size for all portfolio cards */
+.pg2 .portfolio-card img{
+    height: 180px;              /* uniform image height */
+    object-fit: cover;          /* crop to fit without distortion */
+}
+/* ===================================
+   Project 3 — Store structure (F8)
+   بطاقات التصنيفات (روابط داخلية)
+=================================== */
+.categories-container{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.category-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 200px;
+    min-width: 220px;
+    max-width: 260px;
+    gap: 8px;
+    padding: 35px 25px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(0,255,255,0.25);
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0,255,255,.15);
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.category-card:hover{
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 0 35px rgba(5,126,173,0.744);
+    border-color: #4fd1ff;
+}
+
+.category-icon{
+    font-size: 40px;
+    line-height: 1;
+}
+
+/* ===================================
+   Project 3 — Store main page (F9)
+   شريط التنقل الأفقي لأقسام المتجر
+=================================== */
+.store-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    max-width: fit-content;
+    margin: 40px auto 0;
+    padding: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(0,255,255,0.25);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,255,255,.12);
+}
+
+.store-nav a{
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 10px 24px;
+    border-radius: 10px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.store-nav a:hover{
+    background: rgba(0,255,255,0.15);
+    color: #4fd1ff;
+}
+
+/* ===================================
+   Project 3 — Store header (F10)
+   رأس المتجر: الهوية + السلة
+=================================== */
+.store-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 15px 10%;
+    background: rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(0,255,255,0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0,255,255,.08);
+}
+
+.store-logo{
+    font-size: 26px;
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    position: relative;
+}
+
+.store-logo::after{
+    content: "";
+    display: block;
+    width: 60%;
+    height: 3px;
+    margin: 6px auto 0;
+    border-radius: 10px;
+    background: linear-gradient(90deg,#0744ee,#fcf409);
+}
+
+.cart-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(0,255,255,0.25);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.cart-btn:hover{
+    background: rgba(0,255,255,0.15);
+    border-color: #4fd1ff;
+    box-shadow: 0 0 15px rgba(0,212,255,0.3);
+}
+
+/* Responsive: الشريط يتحول إلى تمرير أفقي على الهاتف،
+   وبطاقات التصنيفات تبقى متوازنة دون خروج عن الشاشة */
+@media (max-width:768px){
+    .store-nav{
+        max-width: 100%;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .store-nav a{
+        flex: 0 0 auto;
+    }
+    .categories-container{
+        gap: 14px;
+    }
+    .category-card{
+        flex: 1 1 160px;
+        min-width: 0;
+        max-width: none;
+        padding: 25px 15px;
+        font-size: 17px;
+    }
+    .category-icon{
+       font-size: 34px;
+    }
+
+    /* رأس المتجر على الهاتف:
+       الهوية + السلة في سطر واحد */
+    .store-header{
+        gap: 12px;
+        padding: 12px 5%;
+    }
+    .store-logo{
+        font-size: 22px;
+    }
+    .cart-btn{
+        padding: 10px 16px;
+    }
+
+    /* إصلاح Responsive لبطاقات المنتجات على الهاتف:
+       عرض مرن 100% بسقف 340px، وهوامش أقسام أصغر،
+       بحيث لا يحدث تمرير أفقي ولا تخرج البطاقة عن الشاشة */
+    .products{
+        padding: 50px 15px;
+    }
+    .products-container{
+        gap: 15px;
+    }
+    .product-card{
+        width: 100%;
+        max-width: 340px;
+    }
+}
+/* ===================================
+   Product Detail Page (صفحة تفاصيل المنتج)
+   تنسيق جديد لميزة صفحة تفاصيل المنتج
+   - متناسق مع ألوان وتصميم Zero Market الحالي
+   =================================== */
+
+/* روابط المنتج القابلة للنقر داخل البطاقة */
+.product-card-link{
+    display: block;
+    cursor: pointer;
+}
+
+.product-card-link .product-image{
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.product-card-link:hover .product-image{
+    transform: scale(1.06);
+    box-shadow: 0 0 30px rgba(0,255,255,.35);
+}
+
+.product-card-title{
+    display: block;
+    cursor: pointer;
+    transition: color .3s ease;
+}
+
+.product-card-title:hover h3{
+    color: #4fd1ff;
+}
+
+/* الصفحة: حاوية التفاصيل */
+.product-detail-page{
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.product-detail-container{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* بطاقة التفاصيل: صورة + معلومات جنبًا إلى جنب على الشاشات الكبيرة */
+.product-detail-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(0,255,255,0.25);
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 0 30px rgba(0,255,255,.15);
+    text-align: right;
+}
+
+.product-detail-image{
+    width: 100%;
+    max-width: 460px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 20px;
+    box-shadow: 0 0 35px rgba(0,255,255,.25);
+}
+
+.product-detail-info{
+    flex: 1;
+    min-width: 280px;
+    max-width: 520px;
+}
+
+.product-detail-info .badge{
+    margin-bottom: 15px;
+}
+
+.product-detail-name{
+    font-size: 42px;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.product-detail-desc{
+    font-size: 18px;
+    color: #dddddd;
+    line-height: 2;
+    margin: 20px 0;
+}
+
+.product-detail-order{
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.product-detail-back{
+    display: inline-block;
+    margin: 25px 10px 0 0;
+    padding: 12px 24px;
+    border-radius: 12px;
+    border: 2px solid #06b6d4;
+    color: #06b6d4;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.product-detail-back:hover{
+    background: #06b6d4;
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* حالة المنتج غير موجود / خطأ */
+.product-detail-error{
+    text-align: center;
+    flex-direction: column;
+}
+
+.product-detail-message{
+    font-size: 20px;
+    color: #dddddd;
+}
+
+/* Responsive: عمودي على الهاتف */
+@media (max-width:768px){
+    .product-detail-page{
+        padding: 50px 15px;
+    }
+
+    .product-detail-card{
+        padding: 25px 18px;
+        gap: 30px;
+    }
+
+    .product-detail-image{
+        max-width: 320px;
+    }
+
+    .product-detail-name{
+        font-size: 32px;
+    }
+
+    .product-detail-info{
+        text-align: center;
+    }
+}
+
+
+/* ===================================
+   صور المنتجات غير الجاهزة — بديل صادق
+   عند عدم توفر صورة المنتج بعد (حقل image فارغ)
+   نعرض صندوقًا نصيًا "الصورة قريبًا" بدل صورة مكسورة
+   =================================== */
+.product-image-placeholder{
+    width: 95%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed rgba(0,255,255,0.35);
+    border-radius: 15px;
+    background: rgba(255,255,255,0.04);
+    color: #9db4c8;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.product-detail-image-placeholder{
+    width: 100%;
+    max-width: 460px;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed rgba(0,255,255,0.35);
+    border-radius: 20px;
+    background: rgba(255,255,255,0.04);
+    color: #9db4c8;
+    font-size: 22px;
+}
+/* ===================================
+   Zero Market — واجهات المتجر (الرئيسية + القوائم)
+   =================================== */
+
+/* شريط التنقل الموحد — دعم التفاف على الهاتف دون امتداد أفقي */
+.store-nav{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+.store-nav a{
+    white-space: nowrap;
+    margin: 4px;
+}
+
+/* أزرار "عرض جميع ..." أسفل الأقسام في الرئيسية */
+.section-more{
+    display: inline-block;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* واجهة صفحة القوائم (store-view.html) */
+.store-view-page{
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.store-view-head{
+    margin-bottom: 35px;
+}
+
+.store-view-title{
+    font-size: 34px;
+    color: #06b6d4;
+    margin-bottom: 8px;
+}
+
+.store-view-crumb{
+    color: #9db4c8;
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+/* رسالة قسم فارغ */
+.empty-note{
+    color: #9db4c8;
+    font-size: 18px;
+    text-align: center;
+    padding: 30px 0;
+    margin-bottom: 0;
+}
+
+/* الهاتف: تقليل مسافات واجهة القوائم */
+@media (max-width: 768px){
+    .store-view-page{
+        padding: 40px 15px;
+    }
+    .store-view-title{
+        font-size: 26px;
+    }
+}
+
+/* ===================================
+   Project 1 — Web Growth
+   CSS خاص بصفحة project1.html فقط
+   كل القواعد مقيَّدة تحت .project1-page
+   أُلحق في نهاية الملف دون لمس القواعد المشتركة
+   =================================== */
+
+.project1-page{
+    overflow-x: hidden;
+}
+
+.project1-page section{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 70px 6%;
+    text-align: center;
+    /* عند القفز عبر روابط nav، لا يختفي أول القسم خلف الشريط الثابت */
+    scroll-margin-top: 100px;
+}
+
+/* --- Header --- */
+/* شريط علوي ثابت أعلى الصفحة — خاص بـ Web Growth فقط */
+.project1-page header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 16px 6%;
+    background: rgba(20, 20, 35, 0.92);
+    border-bottom: 1px solid rgba(0,255,255,0.15);
+}
+
+.project1-page header span{
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.project1-page header span::after{
+    content: "";
+    display: block;
+    width: 70%;
+    height: 3px;
+    margin: 6px 0 0;
+    border-radius: 10px;
+    background: linear-gradient(90deg,#0744ee,#fcf409);
+}
+
+/* إلغاء القاعدة العامة nav الثابتة — لهذه الصفحة فقط */
+.project1-page nav{
+    position: static;
+    width: auto;
+    background: transparent;
+    padding: 0;
+    text-align: left;
+    z-index: auto;
+}
+
+.project1-page nav a{
+    display: inline-block;
+    color: #4fd1ff;
+    margin: 4px 6px;
+    padding: 7px 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.project1-page nav a:hover{
+    color: #ffffff;
+    background: rgba(0,255,255,0.12);
+}
+
+/* رابط العودة إلى Project Zero (آخر رابط في nav) */
+.project1-page nav a:last-child{
+    border: 1px solid rgba(0,255,255,0.35);
+    border-radius: 20px;
+    padding: 8px 16px;
+}
+
+.project1-page nav a:last-child:hover{
+    background: rgba(0,255,255,0.15);
+    border-color: #4fd1ff;
+}
+
+/* مساحة علوية للمحتوى حتى لا يختفي Hero خلف الشريط الثابت */
+.project1-page main{
+    padding-top: 110px;
+}
+
+/* --- Hero --- */
+.project1-page #home{
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 6% 80px;
+}
+
+.project1-page h1{
+    font-size: 52px;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.project1-page h1::after{
+    content: "";
+    display: block;
+    width: 90px;
+    height: 4px;
+    margin: 15px auto 0;
+    border-radius: 10px;
+    background: linear-gradient(90deg,#0744ee,#fcf409);
+}
+
+.project1-page #home p:first-of-type{
+    font-size: 24px;
+    color: #4fd1ff;
+    font-weight: bold;
+    margin: 20px 0 15px;
+}
+
+.project1-page #home p:last-of-type{
+    font-size: 18px;
+    line-height: 1.9;
+    color: #cccccc;
+    max-width: 640px;
+    margin: 0 auto 30px;
+}
+
+.project1-page #home a{
+    display: inline-block;
+    background: #06b6d4;
+    color: #ffffff;
+    padding: 13px 32px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 17px;
+    transition: all 0.3s ease;
+}
+
+.project1-page #home a:hover{
+    background: #0284c7;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,212,255,0.3);
+}
+
+/* --- عناوين الأقسام --- */
+.project1-page section h2{
+    font-size: 34px;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.project1-page section h2::after{
+    content: "";
+    display: block;
+    width: 70px;
+    height: 3px;
+    margin: 12px auto 0;
+    border-radius: 10px;
+    background: linear-gradient(90deg,#0744ee,#fcf409);
+}
+
+/* توحيد عنوان قسم التواصل (يتجاوز قاعدة #contact h2 العامة) */
+.project1-page #contact h2{
+    font-size: 34px;
+    margin-bottom: 30px;
+}
+
+/* --- نصوص الأقسام --- */
+.project1-page p{
+    font-size: 18px;
+    color: #dddddd;
+    line-height: 1.9;
+}
+
+/* --- القوائم: مرتبة وواضحة دون بطاقات --- */
+.project1-page ul{
+    list-style: none;
+    padding: 0;
+    margin: 25px 0 10px;
+}
+
+.project1-page li{
+    display: inline-block;
+    margin: 8px;
+    padding: 10px 22px;
+    background: #1f2937;
+    color: #7dd3fc;
+    font-weight: bold;
+    border-radius: 10px;
+    font-size: 17px;
+}
+
+/* --- قسم عن المشروع: تمييز بصري بسيط --- */
+.project1-page #about{
+    max-width: 780px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(0,255,255,0.2);
+    border-radius: 20px;
+    padding: 50px 6%;
+}
+
+/* --- قسم التواصل --- */
+.project1-page #contact{
+    padding: 70px 6%;
+}
+
+.project1-page #contact p{
+    font-size: 17px;
+    color: #dddddd;
+}
+
+.project1-page #contact a{
+    display: inline-block;
+    color: #4fd1ff;
+    font-weight: bold;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(0,255,255,0.3);
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 8px 0;
+    transition: all 0.3s ease;
+}
+
+.project1-page #contact a:hover{
+    background: rgba(0,255,255,0.15);
+    color: #ffffff;
+}
+
+/* --- Footer --- */
+.project1-page footer{
+    border-top: 1px solid rgba(0,255,255,0.1);
+    padding: 30px 6%;
+    text-align: center;
+}
+
+.project1-page footer p{
+    margin: 6px 0;
+    color: #cccccc;
+    font-size: 16px;
+}
+
+/* --- Responsive خاص بالصفحة فقط --- */
+@media (max-width: 768px){
+    .project1-page header{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 16px 5%;
+    }
+
+    .project1-page header span::after{
+        width: 40%;
+        margin: 6px auto 0;
+    }
+
+    /* روابط nav تبقى ظاهرة وقابلة للاستخدام على الهاتف
+       (خصومة أعلى من القاعدة العامة nav a{display:none}) */
+    .project1-page nav{
+        text-align: center;
+        width: 100%;
+    }
+
+    .project1-page nav a{
+        font-size: 15px;
+        margin: 4px;
+        padding: 6px 10px;
+    }
+
+    .project1-page main{
+        padding-top: 155px;
+    }
+
+    .project1-page section{
+        padding: 55px 5%;
+        scroll-margin-top: 135px;
+    }
+
+    .project1-page #home{
+        min-height: auto;
+        padding: 80px 5% 60px;
+    }
+
+    .project1-page h1{
+        font-size: 38px;
+    }
+
+    .project1-page #home p:first-of-type{
+        font-size: 20px;
+    }
+
+    .project1-page #home p:last-of-type{
+        font-size: 16px;
+    }
+
+    .project1-page section h2{
+        font-size: 28px;
+    }
+
+    .project1-page p{
+        font-size: 16px;
+    }
+
+    .project1-page li{
+        font-size: 15px;
+        padding: 8px 16px;
+    }
+
+    .project1-page footer{
+        padding: 25px 5%;
+    }
+}
+/* ===================================
+   Project 2 — Best Value (MVP Phase 1)
+   كل قواعد هذا القسم مقيّدة تحت .pg2 فقط، ولا تمس القواعد المشتركة
+   =================================== */
+.pg2 .pg2-header{position:sticky;top:0;z-index:999;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:14px 6%;background:rgba(20,20,35,0.95);border-bottom:1px solid rgba(0,255,255,0.15);box-shadow:0 2px 10px rgba(0,0,0,0.35);}
+.pg2 .pg2-brand{font-size:19px;font-weight:bold;color:#ffffff;}
+.pg2 .pg2-brand-sub{color:#4fd1ff;}
+.pg2 .pg2-home-link{display:inline-block;color:#4fd1ff;font-weight:bold;padding:8px 18px;border:1px solid rgba(0,255,255,0.35);border-radius:20px;transition:all .3s ease;}
+.pg2 .pg2-home-link:hover{background:rgba(0,255,255,0.15);color:#ffffff;}
+.pg2 .pg2-hero{max-width:880px;margin:20px auto;padding:64px 6%;text-align:center;}
+.pg2 .pg2-hero h1{font-size:44px;color:#ffffff;margin-bottom:18px;}
+.pg2 .pg2-hero p{font-size:19px;color:#d1d5db;line-height:1.9;max-width:640px;margin:0 auto 34px;}
+.pg2 .pg2-btn-primary{display:inline-block;background:#06b6d4;color:#ffffff;padding:15px 34px;border-radius:12px;font-weight:bold;transition:all .3s ease;}
+.pg2 .pg2-btn-primary:hover{background:#0284c7;transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,212,255,0.3);}
+.pg2 .pg2-evaluate{max-width:820px;margin:24px auto;padding:44px 6%;background:rgba(255,255,255,0.04);border:1px solid rgba(0,255,255,0.2);border-radius:24px;scroll-margin-top:70px;}
+.pg2 .pg2-evaluate h2{font-size:32px;color:#ffffff;text-align:center;margin-bottom:10px;}
+.pg2 .pg2-evaluate-intro{text-align:center;color:#9db4c8;font-size:16px;margin-bottom:26px;}
+.pg2 .pg2-field{margin-bottom:20px;}
+.pg2 .pg2-field label{display:block;font-weight:bold;color:#ffffff;font-size:16px;margin-bottom:8px;}
+.pg2 .pg2-optional{color:#9db4c8;font-weight:normal;}
+.pg2 .pg2-required{color:#e05252;}
+.pg2 .pg2-input,.pg2 .pg2-select{width:100%;padding:12px 14px;border-radius:10px;background:#1b1f2b;border:1px solid rgba(255,255,255,0.18);color:#ffffff;font-size:16px;box-sizing:border-box;transition:border-color .25s ease;}
+.pg2 .pg2-input:focus,.pg2 .pg2-select:focus{outline:none;border-color:#4fd1ff;}
+.pg2 .pg2-input::placeholder{color:#6b7280;}
+.pg2 .pg2-file-input{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none;}
+.pg2 .pg2-image-btn{display:inline-block;background:#1b1f2b;border:1px dashed rgba(0,255,255,0.4);border-radius:12px;color:#4fd1ff;font-size:16px;font-weight:bold;padding:12px 22px;cursor:pointer;margin-top:6px;transition:all .25s ease;}
+.pg2 .pg2-image-btn:hover{background:rgba(0,255,255,0.12);border-color:#4fd1ff;color:#ffffff;}
+.pg2 .pg2-hint{margin:6px 0 0;font-size:14px;color:#9db4c8;line-height:1.8;}
+.pg2 .pg2-price-wrap{display:flex;align-items:center;gap:10px;}
+.pg2 .pg2-price-wrap .pg2-input{flex:1;}
+.pg2 .pg2-currency{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:8px;padding:11px 14px;color:#ffffff;font-size:17px;font-weight:bold;white-space:nowrap;}
+.pg2 .pg2-field .pg2-error{display:none;margin:6px 0 0;color:#e05252;font-size:14px;}
+.pg2 .pg2-field.pg2-has-error .pg2-error{display:block;}
+.pg2 .pg2-field.pg2-has-error .pg2-input{border-color:#e05252;}
+.pg2 .pg2-image-preview{margin-top:10px;}
+.pg2 .pg2-image-preview[hidden]{display:none;}
+.pg2 .pg2-image-preview img{max-width:220px;max-height:240px;border-radius:12px;border:1px solid rgba(0,255,255,0.25);display:block;margin-bottom:10px;}
+.pg2 .pg2-remove-image{background:transparent;border:1px solid #e05252;color:#e05252;padding:6px 14px;border-radius:8px;font-size:14px;cursor:pointer;transition:all .25s ease;}
+.pg2 .pg2-remove-image:hover{background:rgba(224,82,82,0.12);}
+.pg2 .pg2-submit{display:block;width:100%;max-width:320px;margin:8px auto 0;background:#06b6d4;color:#ffffff;border:none;padding:15px 0;border-radius:12px;font-size:18px;font-weight:bold;cursor:pointer;transition:all .3s ease;}
+.pg2 .pg2-submit:hover{background:#0284c7;transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,212,255,0.3);}
+.pg2 .pg2-result{max-width:820px;margin:30px auto;padding:44px 6%;scroll-margin-top:70px;}
+.pg2 .pg2-result[hidden]{display:none;}
+.pg2 .pg2-result h2{text-align:center;font-size:32px;color:#ffffff;margin-bottom:18px;}
+.pg2 .pg2-result-card{background:rgba(255,255,255,0.05);border:1px solid rgba(0,255,255,0.25);border-radius:24px;padding:28px;}
+.pg2 .pg2-product{font-size:15px;color:#9db4c8;margin-bottom:8px;}
+.pg2 .pg2-result-status{display:inline-block;padding:8px 18px;border-radius:30px;font-size:20px;font-weight:bold;margin-bottom:14px;}
+.pg2 .pg2-status-good{background:rgba(39,199,95,0.15);color:#4adea0;border:1px solid rgba(39,199,95,0.5);}
+.pg2 .pg2-status-verify{background:rgba(245,197,66,0.15);color:#f5c542;border:1px solid rgba(245,197,66,0.5);}
+.pg2 .pg2-status-caution{background:rgba(224,82,82,0.15);color:#ff7d7d;border:1px solid rgba(224,82,82,0.5);}
+.pg2 .pg2-result-summary{font-size:16px;color:#d1d5db;line-height:1.9;margin-bottom:18px;}
+.pg2 .pg2-score{margin:0 0 20px;}
+.pg2 .pg2-score-bar{height:14px;border-radius:10px;background:rgba(255,255,255,0.1);overflow:hidden;}
+.pg2 .pg2-score-fill{height:14px;border-radius:10px;transition:width .35s ease;}
+.pg2 .pg2-score-fill-good{background:linear-gradient(90deg,#27c75f,#06b6d4);}
+.pg2 .pg2-score-fill-verify{background:linear-gradient(90deg,#f5c542,#06b6d4);}
+.pg2 .pg2-score-fill-caution{background:linear-gradient(90deg,#e05252,#f5c542);}
+.pg2 .pg2-score-label{font-size:15px;color:#9db4c8;margin:8px 0 4px;}
+.pg2 .pg2-score-note{font-size:13px;color:#9db4c8;margin:2px 0 0;}
+.pg2 .pg2-result h3{font-size:19px;color:#4fd1ff;margin:18px 0 8px;}
+.pg2 .pg2-result-list{list-style:none;margin:0;padding:0;}
+.pg2 .pg2-result-list li{padding:7px 0;font-size:16px;line-height:1.8;}
+.pg2 .pg2-reason-pos{color:#9fd6a8;}
+.pg2 .pg2-reason-neg{color:#ff9a9a;}
+.pg2 .pg2-reason-warn{color:#f5c542;}
+.pg2 .pg2-reason-neu{color:#d1d5db;}
+.pg2 .pg2-result-dishonesty-note{font-size:14px;color:#f5c542;background:rgba(245,197,66,0.08);border:1px solid rgba(245,197,66,0.25);border-radius:10px;padding:10px 14px;margin:14px 0 0;}
+.pg2 .pg2-result-actions{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.pg2 .pg2-btn-rerun{background:#06b6d4;color:#ffffff;border:none;padding:11px 24px;border-radius:10px;font-weight:bold;cursor:pointer;transition:all .25s ease;}
+.pg2 .pg2-btn-rerun:hover{background:#0284c7;}
+.pg2 .pg2-btn-ghost{background:transparent;color:#d1d5db;border:1px solid rgba(255,255,255,0.3);padding:11px 24px;border-radius:10px;font-weight:bold;cursor:pointer;transition:all .25s ease;}
+.pg2 .pg2-btn-ghost:hover{border-color:#e05252;color:#ff9a9a;background:rgba(224,82,82,0.1);}
+.pg2 .pg2-unverified{max-width:820px;margin:20px auto;padding:44px 6%;}
+.pg2 .pg2-unverified h2{font-size:28px;color:#ffffff;text-align:center;margin-bottom:12px;}
+.pg2 .pg2-unverified>p{text-align:center;font-size:16px;color:#d1d5db;line-height:1.9;margin-bottom:16px;}
+.pg2 .pg2-fixed-list{list-style:none;margin:0;padding:0;}
+.pg2 .pg2-fixed-list li{position:relative;padding:10px 30px 10px 10px;font-size:16px;line-height:1.8;color:#d1d5db;}
+.pg2 .pg2-fixed-list li::before{content:"⚠️";position:absolute;right:2px;top:50%;transform:translateY(-50%);}
+.pg2 .pg2-how{max-width:820px;margin:20px auto;padding:44px 6%;}
+.pg2 .pg2-how h2{font-size:28px;color:#ffffff;text-align:center;margin-bottom:14px;}
+.pg2 .pg2-steps{list-style:none;counter-reset:pg2step;margin:0;padding:0;}
+.pg2 .pg2-steps li{counter-increment:pg2step;font-size:17px;color:#d1d5db;line-height:1.9;padding:8px 34px 8px 10px;}
+.pg2 .pg2-steps li::before{content:counter(pg2step) " — ";color:#4fd1ff;font-weight:bold;}
+.pg2 .pg2-how .pg2-hint{margin-top:14px;}
+.pg2 .pg2-footer{padding:26px 6%;text-align:center;border-top:1px solid rgba(0,255,255,0.12);}
+.pg2 .pg2-footer p{margin:7px 0;color:#c9cfd8;font-size:15px;line-height:1.7;}
+.pg2 .pg2-footer a{color:#4fd1ff;font-weight:bold;text-decoration:none;transition:color .25s ease;}
+.pg2 .pg2-footer a:hover{color:#ffffff;}
+@media (max-width:768px){
+.pg2 .pg2-header{flex-direction:column;align-items:flex-start;gap:8px;padding:12px 5%;}
+.pg2 .pg2-hero{padding:44px 5%;}
+.pg2 .pg2-hero h1{font-size:31px;}
+.pg2 .pg2-hero p{font-size:17px;}
+.pg2 .pg2-evaluate,.pg2 .pg2-result,.pg2 .pg2-unverified,.pg2 .pg2-how{padding:32px 5%;}
+.pg2 .pg2-evaluate,.pg2 .pg2-result{scroll-margin-top:110px;}
+.pg2 .pg2-result-card{padding:20px 14px;}
+.pg2 .pg2-result-status{font-size:17px;}
+.pg2 .pg2-submit{max-width:100%;}
+}

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Best Value — ساعد نفسك على معرفة ما إذا كانت الصفقة التي وجدتها تستحق أموالك قبل الشراء.">
+<title>Best Value | Project Zero</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="pg2">
+
+<header class="pg2-header">
+
+    <span class="pg2-brand">Best Value · <span class="pg2-brand-sub">Project Zero</span></span>
+
+    <a class="pg2-home-link" href="index.html">العودة إلى الرئيسية</a>
+
+</header>
+
+<section class="pg2-hero">
+
+    <h1>هل هذه الصفقة تستحق أموالك؟</h1>
+
+    <p>
+        لا تبحث فقط عن الأرخص. افهم السعر، حالة المنتج، الضمان،
+        الإرجاع والمعلومات المتاحة قبل أن تشتري.
+    </p>
+
+    <a href="#pg2-evaluate" class="pg2-btn-primary">ابدأ تقييم الصفقة</a>
+
+</section>
+
+
+<section class="pg2-evaluate" id="pg2-evaluate">
+
+    <h2>قيّم صفقتك</h2>
+
+    <p class="pg2-evaluate-intro">
+        أدخل معلومات الصفقة التي وجدتها، ثم اضغط «قيّم الصفقة».
+    </p>
+
+    <form class="pg2-form" id="pg2-form" novalidate>
+
+        <!-- صورة المنتج -->
+        <div class="pg2-field">
+            <label for="pg2-image">صورة المنتج <span class="pg2-optional">(اختيارية — للمعاينة والتوثيق فقط)</span></label>
+
+            <label class="pg2-image-btn" for="pg2-image">📷 اختيار صورة المنتج</label>
+
+            <input type="file" id="pg2-image" accept="image/*" class="pg2-file-input">
+
+            <div class="pg2-image-preview" id="pg2-image-preview" hidden>
+                <img id="pg2-preview-img" alt="معاينة صورة المنتج">
+                <button type="button" class="pg2-remove-image" id="pg2-remove-image">إزالة الصورة</button>
+            </div>
+
+            <p class="pg2-hint">
+                الصورة تساعدك على توثيق المنتج داخل التقييم فقط، ولا تُرسل إلى أي خدمة خارجية.
+                التعرف التلقائي على المنتج سيكون مرحلة مستقبلية.
+            </p>
+        </div>
+
+        <!-- اسم المنتج / الوصف -->
+        <div class="pg2-field" id="pg2-field-name">
+            <label for="pg2-name">اسم المنتج / الوصف <span class="pg2-required">*</span></label>
+
+            <input type="text" id="pg2-name" class="pg2-input" required
+                   placeholder="مثال: هاتف A16 — 8GB / 256GB">
+
+            <p class="pg2-error" id="pg2-name-error"></p>
+        </div>
+
+        <!-- السعر المعروض -->
+        <div class="pg2-field" id="pg2-field-price">
+            <label for="pg2-price">السعر المعروض <span class="pg2-required">*</span></label>
+
+            <div class="pg2-price-wrap">
+                <input type="number" id="pg2-price" class="pg2-input" required
+                       min="0.01" step="0.01" inputmode="decimal"
+                       placeholder="مثال: 1499">
+                <span class="pg2-currency">د.م.</span>
+            </div>
+
+            <p class="pg2-error" id="pg2-price-error"></p>
+        </div>
+
+        <!-- حالة المنتج -->
+        <div class="pg2-field">
+            <label for="pg2-condition">حالة المنتج</label>
+
+            <select id="pg2-condition" class="pg2-select">
+                <option value="unknown" selected>غير معروف</option>
+                <option value="new">جديد</option>
+                <option value="used">مستعمل</option>
+            </select>
+        </div>
+
+        <!-- الضمان -->
+        <div class="pg2-field">
+            <label for="pg2-warranty">الضمان</label>
+
+            <select id="pg2-warranty" class="pg2-select">
+                <option value="unknown" selected>غير معروف</option>
+                <option value="yes">يوجد ضمان واضح</option>
+                <option value="no">لا يوجد ضمان</option>
+            </select>
+        </div>
+
+        <!-- الإرجاع -->
+        <div class="pg2-field">
+            <label for="pg2-return">الإرجاع</label>
+
+            <select id="pg2-return" class="pg2-select">
+                <option value="unknown" selected>غير معروف</option>
+                <option value="yes">يوجد إرجاع واضح</option>
+                <option value="no">لا يوجد إرجاع</option>
+            </select>
+        </div>
+
+        <!-- معلومات البائع -->
+        <div class="pg2-field">
+            <label for="pg2-seller">معلومات البائع</label>
+
+            <select id="pg2-seller" class="pg2-select">
+                <option value="unknown" selected>غير معروفة</option>
+                <option value="clear">معلومات واضحة عن البائع</option>
+                <option value="limited">معلومات محدودة</option>
+            </select>
+        </div>
+
+        <!-- معلومات الأصالة / المصدر -->
+        <div class="pg2-field">
+            <label for="pg2-source">معلومات الأصالة / المصدر</label>
+
+            <select id="pg2-source" class="pg2-select">
+                <option value="unknown" selected>غير معروفة</option>
+                <option value="clear">توجد معلومات واضحة</option>
+                <option value="limited">معلومات محدودة</option>
+            </select>
+
+            <p class="pg2-hint">
+                اختيار «معلومات واضحة» يعني أن المستندات أو المصدر أمامك،
+                ولا يعني تأكيدًا تلقائيًا أن المنتج أصلي.
+            </p>
+        </div>
+
+        <!-- زر التقييم -->
+        <button type="submit" class="pg2-submit" id="pg2-submit">قيّم الصفقة</button>
+
+    </form>
+
+</section>
+
+<section class="pg2-result" id="pg2-result" hidden>
+
+    <h2>نتيجة التقييم</h2>
+
+    <div class="pg2-result-card" id="pg2-result-card">
+        <!-- تُبنى ديناميكيًا من project2.js -->
+    </div>
+
+</section>
+
+
+
+   <section class="pg2-unverified">
+
+    <h2>ما الذي لا يستطيع Project 2 التحقق منه بعد؟</h2>
+
+    <p>
+        نحن صريحون معك: هذه النسخة تبني رأيًا استرشاديًا من المعلومات
+        التي تدخلها أنت فقط، ولا تفحص المنتج فعليًا.
+    </p>
+
+    <ul class="pg2-fixed-list">
+        <li>السعر الحقيقي في جميع المتاجر — لا توجد مقارنة تلقائية في هذه النسخة.</li>
+        <li>الأصالة بشكل مستقل — لا يفحص المشروع المنتج بنفسه.</li>
+        <li>جودة المنتج الفعلية — لا يمكن تأكيدها من المعلومات المكتوبة وحدها.</li>
+        <li>تاريخ السعر وتقلباته.</li>
+        <li>سمعة البائع خارج المعلومات التي أدخلتها أنت.</li>
+    </ul>
+
+</section>
+
+<section class="pg2-how">
+
+    <h2>كيف يعمل؟</h2>
+
+    <ol class="pg2-steps">
+        <li>أدخل معلومات الصفقة</li>
+        <li>نحلل المعلومات المتاحة</li>
+        <li>نوضح نقاط القوة والمخاطر</li>
+        <li>نساعدك على اتخاذ قرار أكثر وعيًا</li>
+    </ol>
+
+    <p class="pg2-hint">
+        لا يبحث Project 2 في الإنترنت، ولا يقارن الأسعار تلقائيًا.
+        في هذه المرحلة يحلل المعلومات التي تدخلها أنت فقط.
+    </p>
+
+</section>
+
+<footer class="pg2-footer">
+
+    <p><strong>Project Zero</strong></p>
+
+    <p>Best Value — هل هذه الصفقة تستحق أموالك؟</p>
+
+    <p><a href="index.html">العودة إلى Project Zero</a></p>
+
+    <p>© 2026 زايد — Project Zero</p>
+
+</footer>
+
+<script src="project2.js"></script>
+
+</body>
+
+</html>
