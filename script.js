@@ -4,182 +4,33 @@
    Central Product Data Source (Phase 1)
    ===================================================== */
 
-/* رقم واتساب الرسمي للمتجر — المصدر الواحد لكل روابط الطلب */
-var WHATSAPP_NUMBER = "212624726277";
-
 /* =====================================================
-   مميزات المتجر — تظهر في شريط الثقة وصفحة المنتج والتذييل
-   ⚠️ هذه وعود للزبون: لا تكتب إلا ما يقدّمه المتجر فعلًا،
-   وعدّلها لكل متجر جديد حسب طريقة عمل صاحبه.
+   معلومات المتجر تأتي من store-config.js (يُحمَّل قبل هذا الملف):
+   STORE (الاسم، الرقم، التصنيفات...) + PRODUCTS (المنتجات).
+   هذا الملف = طريقة عمل المتجر فقط، ولا تحتاج تعديله لمتجر جديد.
    ===================================================== */
-var STORE_FEATURES = [
-    { icon: "🚚", title: "توصيل لجميع المدن", text: "نوصل طلبك إلى باب منزلك" },
-    { icon: "💵", title: "الدفع عند الاستلام", text: "ادفع فقط عندما تستلم طلبك" },
-    { icon: "📞", title: "تأكيد الطلب هاتفيًا", text: "نتصل بك لتأكيد الطلب قبل الشحن" },
-    { icon: "💬", title: "دعم عبر واتساب", text: "نجيب على أسئلتك بسرعة" }
-];
 
-/* =====================================================
-   مصدر البيانات المركزي — جميع منتجات المتجر الحالية
-   (4 منتجات إلكترونية + 6 منتجات جديدة الصورة لاحقًا)
-   ===================================================== */
-var PRODUCTS = [
-    {
-        id: "mechanical-keyboard",
-        tags: "كلافيي لوحة مفاتيح كيبورد clavier keyboard gaming ألعاب",
-        name: "R8 60% Mechanical Keyboard – 61 Keys",
-        category: "electronics",
-        section: "offers",
-        image: "images/mechanical-keyboard.jpeg",
-        alt: "لوحة مفاتيح ميكانيكية",
-        badge: { type: "offer", text: "عرض خاص" },
-        description: "لوحة مفاتيح ميكانيكية بإضاءة RGB، مناسبة للألعاب والبرمجة والكتابة الاحترافية.",
-        rating: 3.1,
-        oldPrice: 379,
-        price: 249,
-        currency: "د.م."
-    },
-    {
-        id: "laptop-pro-x15",
-        tags: "لابتوب حاسوب كمبيوتر حاسوب محمول pc portable ordinateur laptop lenovo",
-        name: "Lenovo ThinkPad L13 – Core i5 10th Gen / 8GB RAM / 256GB SSD",
-        category: "electronics",
-        section: "best-sellers",
-        image: "images/lenovo-thinkpad-l13.jpeg",
-        alt: "لابتوب Pro X15",
-        badge: { type: "bestseller", text: "⭐ الأعلى تقييمًا" },
-        description: "لابتوب احترافي مناسب للدراسة والعمل والتصميم والبرمجة.",
-        rating: 5,
-        oldPrice: 3999,
-        price: 2399,
-        currency: "د.م."
-    },
-    {
-        id: "smart-phone",
-        tags: "هاتف تلفون تليفون جوال portable telephone smartphone phone samsung سامسونج",
-        name: "Samsung Galaxy A16 – 8GB / 256GB",
-        category: "electronics",
-        section: "best-sellers",
-        image: "images/samsung-galaxy-a16.jpeg",
-        alt: "هاتف ذكي",
-        badge: { type: "new", text: "جديد" },
-        description: "هاتف ذكي حديث بكاميرا عالية الدقة، شاشة AMOLED، وأداء سريع.",
-        rating: 4.3,
-        oldPrice: 2199,
-        price: 2099,
-        currency: "د.م."
-    },
-    {
-        id: "wireless-headphones",
-        tags: "سماعات سماعة بلوتوث كيت ecouteurs casque headphones",
-        name: "P9 Bluetooth Headphones",
-        category: "electronics",
-        section: "best-sellers",
-        image: "images/p9-bluetooth-headphones.jpeg",
-        alt: "سماعات لاسلكية",
-        badge: { type: "new", text: "جديد" },
-        description: "سماعات لاسلكية عالية الجودة، صوت نقي، بطارية طويلة وتصميم مريح للاستخدام اليومي.",
-        rating: 3.5,
-        price: 55,
-        currency: "د.م."
-    },
+/* رقم Project Zero — يُستخدم فقط في رابط «تريد متجرًا مثل هذا؟» في التذييل،
+   حتى تصلك أنت رسائل من يريد متجرًا، وليس صاحب المتجر */
+var DESIGNER_WHATSAPP = "212624726277";
+var PROJECT_ZERO_URL = "https://zaydzayn328-source.github.io/matjr-raid/";
 
-    /* ═══════════════════════════════════════════════════
-       منتجات جديدة (6) — الصور تُضاف لاحقًا بعد تجهيزها واعتمادها.
-       حقل image فارغ حاليًا: يُستبدل بمسار الصورة النهائية عند توفرها.
-       لا تقييم (rating=0) ولا سعر قديم حتى لا نعرض بيانات غير مؤكدة.
-       ═══════════════════════════════════════════════════ */
+var WHATSAPP_NUMBER = STORE.whatsapp;
+var STORE_FEATURES = STORE.features || [];
+var FEATURED_IDS = STORE.featured || [];
+var STORE_HOME = STORE.home || "index.html";
 
-    {
-        id: "mini-perfume-set",
-        tags: "عطر عطور ريحة parfum parfums perfume هدية",
-        name: "Coffret 4 Mini Parfums Eau de Parfum – Him & Her",
-        category: "beauty",
-        section: "new-arrivals",
-        image: "images/mini-perfume-set.jpeg",
-        alt: "مجموعة عطور Mini - Unisex",
-        badge: { type: "new", text: "جديد" },
-        description: "مجموعة عطور صغيرة وأنيقة، مناسبة للاستخدام الشخصي والتنقل أو كهدية.",
-        rating: 0,
-        oldPrice: 197,
-        price: 106,
-        currency: "د.م."
-    },
-    {
-        id: "heat-smoothing-brush",
-        tags: "فرشاة مشط شعر سشوار brosse lisseur cheveux",
-        name: "Brosse Lissante Chauffante 2 en 1 – Lisseur et Peigne Coiffant",
-        category: "beauty",
-        section: "new-arrivals",
-        image: "images/heat-smoothing-brush.jpeg",
-        alt: "فرشاة تنعيم حرارية 2 في 1",
-        badge: { type: "new", text: "جديد" },
-        description: "فرشاة كهربائية عملية لتصفيف وتنعيم الشعر بتصميم عصري.",
-        rating: 0,
-        oldPrice: 250,
-        price: 149,
-        currency: "د.م."
-    },
-    {
-        id: "baguette-handbag",
-        tags: "حقيبة شنطة صاك sac bag نسائية",
-        name: "Sac à Épaule Femme Style Baguette en Simili Cuir",
-        category: "clothing",
-        section: "new-arrivals",
-        image: "images/baguette-handbag.jpeg",
-        alt: "حقيبة نسائية Baguette عصرية",
-        badge: { type: "new", text: "جديد" },
-        description: "حقيبة نسائية بتصميم عصري وأنيق، مناسبة للاستخدام اليومي وتمنح الإطلالة لمسة بسيطة ومرتبة.",
-        rating: 0,
-        price: 159,
-        currency: "د.م."
-    },
-    {
-        id: "wraparound-sunglasses",
-        tags: "نظارات نظارة شمسية لونيت lunettes sunglasses",
-        name: "HD Vision Wraparounds – Set de 2",
-        category: "clothing",
-        section: "best-sellers",
-        image: "images/hd-vision-wraparound-sunglasses.jpeg",
-        alt: "نظارات شمسية Wraparound عصرية",
-        badge: { type: "new", text: "جديد" },
-        description: "نظارات شمسية بتصميم Wraparound عصري وملفت، مناسبة للإطلالات اليومية الحديثة.",
-        rating: 4,
-        oldPrice: 99,
-        price: 58.90,
-        currency: "د.م."
-    },
-    {
-        id: "crystal-led-lamp",
-        tags: "مصباح لامبة ضوء اضاءة lampe lamp led ديكور",
-        name: "Lampe LED tactile en cristal – 16 couleurs",
-        category: "home",
-        section: "new-arrivals",
-        image: "images/crystal-led-lamp.jpeg",
-        alt: "مصباح LED ديكوري كريستالي",
-        badge: { type: "new", text: "جديد" },
-        description: "مصباح ديكوري صغير بتصميم كريستالي أنيق، مناسب لغرفة النوم أو المكتب أو الطاولة الجانبية.",
-        rating: 0,
-        oldPrice: 130,
-        price: 99,
-        currency: "د.م."
-    },
-    {
-        id: "electric-burner",
-        tags: "مبخرة بخور عود encens brûleur burner",
-        name: "مبخرة كهربائية عربية بتصميم شرقي",
-        category: "home",
-        section: "new-arrivals",
-        image: "images/electric-arabic-burner.jpeg",
-        alt: "مبخرة كهربائية عصرية - تصميم شرقي",
-        badge: { type: "new", text: "جديد" },
-        description: "مبخرة كهربائية بتصميم عصري مستوحى من الطابع الشرقي، مناسبة للاستخدام المنزلي والديكور.",
-        rating: 3,
-        oldPrice: 200,
-        price: 86,
-        currency: "د.م."
-    }
-];
+/* تكملة الحقول الاختيارية لكل منتج — يكفي: id, name, category, image, price */
+PRODUCTS.forEach(function (p) {
+    p.currency = p.currency || STORE.currency || "د.م.";
+    p.alt = p.alt || p.name;
+    p.description = p.description || "";
+    p.section = p.section || "new-arrivals";
+    p.badge = p.badge || (p.section === "offers"
+        ? { type: "offer", text: "عرض خاص" }
+        : { type: "new", text: "جديد" });
+    p.rating = p.rating || 0;
+});
 
 /* =====================================================
    دالة توليد رابط واتساب من بيانات المنتج
@@ -476,14 +327,14 @@ function renderProductDetail() {
     if (backView) {
         backParams.push('view=' + encodeURIComponent(backView));
     }
-    var backHref = backParams.length ? 'store-view.html?' + backParams.join('&') : 'project3.html';
+    var backHref = backParams.length ? 'store-view.html?' + backParams.join('&') : STORE_HOME;
     var backToStore =
         '<a href="' + backHref + '" class="product-detail-back">' +
             '← العودة إلى المتجر' +
         '</a>';
 
     if (!product) {
-        document.title = "المنتج غير موجود | Zero Market";
+        document.title = "المنتج غير موجود | " + STORE.name;
         container.innerHTML =
             '<div class="product-detail-card product-detail-error">' +
                 '<h1 class="product-detail-name">المنتج غير موجود</h1>' +
@@ -495,7 +346,7 @@ function renderProductDetail() {
         return;
     }
 
-    document.title = product.name + ' | Zero Market';
+    document.title = product.name + ' | ' + STORE.name;
 
     /* صورة المنتج — بديل نصي صادق إذا لم تكن الصورة جاهزة بعد */
     var detailImageHtml =
@@ -573,13 +424,6 @@ function relatedProductsHtml(product) {
    - renderStoreView : تعبئة القوائم في store-view.html حسب ?view= / ?cat=
    ===================================================== */
 
-/* المنتجات المميزة في الرئيسية: منتج واحد من كل تصنيف (4) */
-var FEATURED_IDS = [
-    "smart-phone",        /* إلكترونيات */
-    "baguette-handbag",    /* ملابس */
-    "heat-smoothing-brush",/* تجميل وعناية */
-    "electric-burner"      /* منزل */
-];
 
 /* تعبئة الصفحة الرئيسية (project3.html) بمعاينات مختصرة */
 function renderHomePage() {
@@ -637,16 +481,22 @@ function renderHomePage() {
     }
 }
 
+/* البحث عن تصنيف في STORE.categories */
+function getCategory(id) {
+    var cats = STORE.categories || [];
+    for (var i = 0; i < cats.length; i++) {
+        if (cats[i].id === id) {
+            return cats[i];
+        }
+    }
+    return null;
+}
+
 /* عناوين صفحات القوائم حسب المعامل */
 function storeViewTitle(view, cat) {
     if (cat) {
-        var catTitles = {
-            electronics: "الإلكترونيات",
-            clothing: "الملابس",
-            beauty: "التجميل والعناية",
-            home: "المنزل واللوازم المنزلية"
-        };
-        return catTitles[cat] || "التصنيفات";
+        var catObj = getCategory(cat);
+        return catObj ? catObj.name : "التصنيفات";
     }
     var viewTitles = {
         all: "منتجاتنا",
@@ -703,7 +553,7 @@ function renderStoreView() {
     if (head) {
         head.innerHTML =
             '<h1 class="store-view-title">' + title + '</h1>' +
-            '<p class="store-view-crumb"><a href="project3.html">الرئيسية</a> ← ' + title + '</p>' +
+            '<p class="store-view-crumb"><a href="' + STORE_HOME + '">الرئيسية</a> ← ' + title + '</p>' +
             (list.length > 1
                 ? '<div class="store-view-tools">' +
                       '<span class="store-view-count">' + list.length + ' منتجات</span>' +
@@ -738,7 +588,7 @@ function renderStoreView() {
         });
     }
 
-    document.title = (query ? 'بحث: ' + query : title) + ' | Zero Market';
+    document.title = (query ? 'بحث: ' + query : title) + ' | ' + STORE.name;
 }
 
 /* البحث في الاسم والوصف ونص الصورة — دون تمييز بين الحروف الكبيرة والصغيرة */
@@ -790,7 +640,7 @@ function sortProducts(list, sortBy) {
    - تُرسل كل المنتجات في رسالة واتساب واحدة مع المجموع
    - لوحة السلة تُبنى من هنا، فلا تحتاج الصفحات إلا زر .cart-btn
    ===================================================== */
-var CART_KEY = "zero-market-cart";
+var CART_KEY = STORE.id + "-cart";
 var cart = loadCart();
 
 function loadCart() {
@@ -1014,7 +864,7 @@ function renderCart() {
         var p = getProductById(cart[i].id);
         html +=
             '<div class="cart-item">' +
-                '<img src="' + p.image + '" alt="' + p.alt + '">' +
+                (p.image ? '<img src="' + p.image + '" alt="' + p.alt + '">' : '<div class="cart-item-noimg">🛍️</div>') +
                 '<div class="cart-item-info">' +
                     '<p class="cart-item-name">' + p.name + '</p>' +
                     '<p class="cart-item-price">' + formatPrice(p.price) + ' ' + p.currency + '</p>' +
@@ -1033,7 +883,7 @@ function renderCart() {
 }
 
 /* معلومات الزبون تُحفظ في جهازه فقط، حتى لا يكتبها مرة أخرى في الطلب القادم */
-var CUSTOMER_KEY = "zero-market-customer";
+var CUSTOMER_KEY = STORE.id + "-customer";
 
 function loadCustomer() {
     try {
@@ -1109,9 +959,10 @@ function setupStoreChrome() {
     }
 
     var waHello = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" +
-        encodeURIComponent("السلام عليكم، عندي سؤال عن منتجات Zero Market");
-    var waBuild = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" +
-        encodeURIComponent("السلام عليكم، رأيت متجر Zero Market وأريد متجرًا مثله لمنتجاتي");
+        encodeURIComponent("السلام عليكم، عندي سؤال عن منتجات " + STORE.name);
+    /* هذا الرابط يذهب إلى Project Zero (أنت)، وليس إلى صاحب المتجر */
+    var waBuild = "https://wa.me/" + DESIGNER_WHATSAPP + "?text=" +
+        encodeURIComponent("السلام عليكم، رأيت متجر " + STORE.name + " وأريد متجرًا مثله لمنتجاتي");
 
     /* زر واتساب العائم */
     document.body.insertAdjacentHTML('beforeend',
@@ -1128,7 +979,7 @@ function setupStoreChrome() {
         '<footer class="store-footer">' +
             '<div class="store-footer-cols">' +
                 '<div>' +
-                    '<p class="store-footer-brand">Zero Market</p>' +
+                    '<p class="store-footer-brand">' + STORE.name + '</p>' +
                     '<p>منتجات مختارة بعناية، وطلب سهل عبر واتساب.</p>' +
                 '</div>' +
                 '<div>' +
@@ -1147,15 +998,69 @@ function setupStoreChrome() {
                 '</div>' +
             '</div>' +
             '<div class="store-footer-bottom">' +
-                '<span>© ' + year + ' Zero Market</span>' +
-                '<span>صُمّم بواسطة <a href="index.html">Project Zero</a> · ' +
+                '<span>© ' + year + ' ' + STORE.name + '</span>' +
+                '<span>صُمّم بواسطة <a href="' + PROJECT_ZERO_URL + '" target="_blank" rel="noopener">Project Zero</a> · ' +
                     '<a href="' + waBuild + '" target="_blank" rel="noopener">تريد متجرًا مثل هذا؟</a></span>' +
             '</div>' +
         '</footer>'
     );
 }
 
+/* =====================================================
+   هوية المتجر: تملأ الاسم والبطل والتصنيفات وزر التواصل من STORE
+   ===================================================== */
+function applyStoreBranding() {
+    var logos = document.querySelectorAll('.store-logo');
+    for (var i = 0; i < logos.length; i++) {
+        logos[i].textContent = STORE.name;
+        logos[i].setAttribute('href', STORE_HOME);
+    }
+
+    var texts = document.querySelectorAll('[data-store]');
+    for (var j = 0; j < texts.length; j++) {
+        var key = texts[j].getAttribute('data-store');
+        if (STORE[key]) {
+            texts[j].textContent = STORE[key];
+        }
+    }
+
+    var banner = document.getElementById('store-banner');
+    if (banner) {
+        if (STORE.banner) {
+            banner.src = STORE.banner;
+            banner.alt = STORE.name;
+        } else {
+            banner.remove();
+        }
+    }
+
+    var catsEl = document.getElementById('categories-container');
+    if (catsEl) {
+        var cats = STORE.categories || [];
+        var html = "";
+        for (var k = 0; k < cats.length; k++) {
+            html +=
+                '<a href="store-view.html?cat=' + encodeURIComponent(cats[k].id) + '" class="category-card">' +
+                    '<span class="category-icon">' + cats[k].icon + '</span>' +
+                    cats[k].name +
+                '</a>';
+        }
+        catsEl.innerHTML = html;
+    }
+
+    var contact = document.getElementById('store-contact-wa');
+    if (contact) {
+        contact.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" +
+            encodeURIComponent("السلام عليكم، أريد التواصل مع " + STORE.name);
+    }
+
+    if (document.getElementById('featured-products-container')) {
+        document.title = STORE.name + ' | ' + (STORE.tagline || 'متجر إلكتروني');
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
+    applyStoreBranding();
     renderProductDetail();
     renderStoreView();
     renderHomePage();

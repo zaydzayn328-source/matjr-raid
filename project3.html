@@ -35,12 +35,12 @@
 <!-- ============ صفحة البطل ============ -->
 <section class="project-page">
 
-    <img class="project-banner" src="images/zero-market-banner.jpg.png" alt="Zero Market">
+    <img class="project-banner" id="store-banner" src="images/zero-market-banner.jpg.png" alt="Zero Market">
     <div class="hero-box">
-    <h1>Zero Market</h1>
-    <h2>متجر إلكتروني</h2>
+    <h1 data-store="name">Zero Market</h1>
+    <h2 data-store="tagline">متجر إلكتروني</h2>
     
-    <p>
+    <p data-store="description">
         متجر إلكتروني حديث يعرض المنتجات بطريقة احترافية
         مع تصميم سريع ومتجاوب مع جميع الأجهزة.
     </p>
@@ -72,23 +72,8 @@
 <section id="categories" class="products categories">
 
     <h2>التصنيفات</h2>
-    <div class="categories-container">
-        <a href="store-view.html?cat=electronics" class="category-card">
-            <span class="category-icon">&#128241;</span>
-            الإلكترونيات
-        </a>
-        <a href="store-view.html?cat=clothing" class="category-card">
-            <span class="category-icon">&#128087;</span>
-            الملابس
-        </a>
-        <a href="store-view.html?cat=beauty" class="category-card">
-            <span class="category-icon">&#128132;</span>
-            التجميل والعناية
-        </a>
-        <a href="store-view.html?cat=home" class="category-card">
-            <span class="category-icon">&#127968;</span>
-            المنزل واللوازم المنزلية
-        </a>
+    <div class="categories-container" id="categories-container">
+        <!-- تُبنى من STORE.categories في store-config.js -->
     </div>
 </section>
 
@@ -130,16 +115,17 @@
     <h2>تواصل معنا</h2>
     <div class="contact-card">
         <p>
-            إذا كان لديك أي سؤال أو طلب خاص بمتجر Zero Market،
+            إذا كان لديك أي سؤال أو طلب خاص بمتجر <span data-store="name">Zero Market</span>،
             تواصل معنا مباشرة وسنرد عليك في أقرب وقت.
         </p>
-        <a href="https://wa.me/212624726277?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%20%D8%A7%D9%84%D9%85%D8%AA%D8%AC%D8%B1" class="contact-button" target="_blank">
+        <a href="#" id="store-contact-wa" class="contact-button" target="_blank" rel="noopener">
             تواصل معنا عبر واتساب
         </a>
     </div>
 </section>
 
 
+<script src="store-config.js"></script>
 <script src="script.js"></script>
 
 </body>

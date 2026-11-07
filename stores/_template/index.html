@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>متجر إلكتروني</title>
+
+
+    <link rel="stylesheet" href="../../style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ============ Header المتجر ============ -->
+<header class="store-header">
+
+    <!-- هوية المتجر -->
+    <a href="index.html" class="store-logo"></a>
+
+    <!-- السلة -->
+    <button type="button" class="cart-btn" aria-label="سلة المشتريات">
+        &#128722; السلة
+    </button>
+
+</header>
+
+<!-- ============ صفحة البطل ============ -->
+<section class="project-page">
+
+    <img class="project-banner" id="store-banner" alt="">
+    <div class="hero-box">
+    <h1 data-store="name"></h1>
+    <h2 data-store="tagline">متجر إلكتروني</h2>
+    
+    <p data-store="description">
+        متجر إلكتروني حديث يعرض المنتجات بطريقة احترافية
+        مع تصميم سريع ومتجاوب مع جميع الأجهزة.
+    </p>
+    <a href="store-view.html?view=all" class="hero-cta">🛍️ تسوّق الآن</a>
+    </div>
+</section>
+
+<!-- ============ شريط التنقل الأفقي لأقسام المتجر ============ -->
+<div class="store-nav">
+    <a href="index.html">الرئيسية</a>
+    <a href="store-view.html?view=all">منتجاتنا</a>
+    <a href="store-view.html?view=offers">العروض</a>
+    <a href="store-view.html?view=best-sellers">⭐ الأعلى تقييمًا</a>
+    <a href="store-view.html?view=new-arrivals">جديدنا</a>
+    <a href="#categories">التصنيفات</a>
+    <a href="#contact">تواصل معنا</a>
+</div>
+
+<!-- ============ البحث في المتجر ============ -->
+<form class="store-search" action="store-view.html" method="get" role="search">
+    <input type="search" name="q" placeholder="ابحث عن منتج..." aria-label="ابحث عن منتج" required>
+    <button type="submit">🔍 بحث</button>
+</form>
+
+<!-- ============ شريط الثقة (يُعبأ من STORE_FEATURES في script.js) ============ -->
+<div class="trust-bar" id="trust-bar"></div>
+
+<!-- ============ قسم التصنيفات ============ -->
+<section id="categories" class="products categories">
+
+    <h2>التصنيفات</h2>
+    <div class="categories-container" id="categories-container">
+        <!-- تُبنى من STORE.categories في store-config.js -->
+    </div>
+</section>
+
+<!-- ============ قسم منتجات مختارة (معاينة: منتج من كل تصنيف) ============ -->
+<section id="featured-products" class="products">
+
+    <h2>⭐ منتجات مختارة</h2>
+    <div class="products-container" id="featured-products-container"></div>
+    <a href="store-view.html?view=all" class="project-button section-more">عرض جميع المنتجات</a>
+</section>
+
+<!-- ============ قسم العروض ============ -->
+<section id="offers" class="products">
+
+    <h2>🔥 العروض</h2>
+    <div class="products-container" id="offers-container"></div>
+    <a href="store-view.html?view=offers" class="project-button section-more">عرض جميع العروض</a>
+</section>
+
+<!-- ============ قسم الأعلى تقييماً ============ -->
+<section id="best-sellers" class="products">
+
+    <h2>⭐ الأعلى تقييمًا</h2>
+    <div class="products-container" id="best-sellers-container"></div>
+    <a href="store-view.html?view=best-sellers" class="project-button section-more">عرض جميع الأعلى تقييمًا</a>
+</section>
+
+<!-- ============ قسم جديدنا (معاينة 4 فقط) ============ -->
+<section id="new-arrivals" class="products">
+
+    <h2>🆕 جديدنا</h2>
+    <div class="products-container" id="new-arrivals-container"></div>
+    <a href="store-view.html?view=new-arrivals" class="project-button section-more">عرض جميع المنتجات الجديدة</a>
+</section>
+
+<!-- ============ قسم تواصل معنا ============ -->
+<section id="contact" class="contact">
+
+    <h2>تواصل معنا</h2>
+    <div class="contact-card">
+        <p>
+            إذا كان لديك أي سؤال أو طلب خاص بمتجر <span data-store="name"></span>،
+            تواصل معنا مباشرة وسنرد عليك في أقرب وقت.
+        </p>
+        <a href="#" id="store-contact-wa" class="contact-button" target="_blank" rel="noopener">
+            تواصل معنا عبر واتساب
+        </a>
+    </div>
+</section>
+
+
+<script src="store-config.js"></script>
+<script src="../../script.js"></script>
+
+</body>
+
+</html>

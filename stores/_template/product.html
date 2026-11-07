@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>تفاصيل المنتج</title>
+
+    <link rel="stylesheet" href="../../style.css">
+
+</head>
+
+<body>
+
+<!-- ============ Header المتجر (مطابق لصفحة المتجر) ============ -->
+<header class="store-header">
+
+    <!-- هوية المتجر -->
+    <a href="index.html" class="store-logo"></a>
+
+    <!-- السلة -->
+    <button type="button" class="cart-btn" aria-label="سلة المشتريات">
+        &#128722; السلة
+    </button>
+
+</header>
+
+<!-- ============ شريط التنقل الموحد للمتجر ============ -->
+<div class="store-nav">
+    <a href="index.html">الرئيسية</a>
+    <a href="store-view.html?view=all">منتجاتنا</a>
+    <a href="store-view.html?view=offers">العروض</a>
+    <a href="store-view.html?view=best-sellers">⭐ الأعلى تقييمًا</a>
+    <a href="store-view.html?view=new-arrivals">جديدنا</a>
+    <a href="index.html#categories">التصنيفات</a>
+    <a href="index.html#contact">تواصل معنا</a>
+</div>
+
+<!-- ============ البحث في المتجر ============ -->
+<form class="store-search" action="store-view.html" method="get" role="search">
+    <input type="search" name="q" placeholder="ابحث عن منتج..." aria-label="ابحث عن منتج" required>
+    <button type="submit">🔍 بحث</button>
+</form>
+
+<!-- ============ منطقة تفاصيل المنتج (تُعبأ من script.js حسب ?id=) ============ -->
+<section class="product-detail-page">
+
+    <div class="product-detail-container" id="product-detail-container">
+        <!-- يُبنى المحتوى ديناميكيًا من script.js -->
+    </div>
+
+</section>
+
+<script src="store-config.js"></script>
+<script src="../../script.js"></script>
+
+</body>
+
+</html>
