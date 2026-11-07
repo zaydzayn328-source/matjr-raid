@@ -7,7 +7,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>متجر إلكتروني</title>
+    <title>Zero Market | متجر إلكتروني</title>
+
+    <meta name="description" content="Zero Market — متجر إلكتروني: إلكترونيات، ملابس، تجميل ومنزل. اطلب بسهولة عبر واتساب.">
 
     <link rel="stylesheet" href="style.css">
 
@@ -42,6 +44,7 @@
         متجر إلكتروني حديث يعرض المنتجات بطريقة احترافية
         مع تصميم سريع ومتجاوب مع جميع الأجهزة.
     </p>
+    <a href="store-view.html?view=all" class="hero-cta">🛍️ تسوّق الآن</a>
     </div>
 </section>
 
@@ -55,6 +58,15 @@
     <a href="#categories">التصنيفات</a>
     <a href="#contact">تواصل معنا</a>
 </div>
+
+<!-- ============ البحث في المتجر ============ -->
+<form class="store-search" action="store-view.html" method="get" role="search">
+    <input type="search" name="q" placeholder="ابحث عن منتج... مثال: هاتف، عطر، حقيبة" aria-label="ابحث عن منتج" required>
+    <button type="submit">🔍 بحث</button>
+</form>
+
+<!-- ============ شريط الثقة (يُعبأ من STORE_FEATURES في script.js) ============ -->
+<div class="trust-bar" id="trust-bar"></div>
 
 <!-- ============ قسم التصنيفات ============ -->
 <section id="categories" class="products categories">
@@ -127,11 +139,6 @@
     </div>
 </section>
 
-<div class="back-home">
-    <a href="index.html" class="project-button">
-        العودة إلى الرئيسية
-    </a>
-</div>
 
 <script src="script.js"></script>
 
